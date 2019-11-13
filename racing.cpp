@@ -127,6 +127,21 @@ void keyboard_up_func(int k, int x, int y)
     }
 }
 
+void reset()
+{
+	gameStopped = false;
+    gameCompleted = false;
+    reachedEnd = false;
+    seconds = 0;
+    distance = 178;
+    fuel = 178;
+    fuelOver = false;
+    end_y = 16000;
+    setCars();
+    game_state = 1;
+    car_x = 0;    
+}
+
 void normalKeyBoardFunc(unsigned char key, int x, int y)
 {
     if(game_state == 1)
@@ -139,12 +154,18 @@ void normalKeyBoardFunc(unsigned char key, int x, int y)
         }
     }
 
-    else if(game_state == 0)
+    else
     {
-        if(key == 13)
+    	switch(key)
         {
-            setCars();
-            game_state = 1;
+            case 's':
+            case 'S': 	
+            			reset();
+            			break;
+            case 'x':
+            case 'X':
+            			exit(0);
+
         }
     }
 }
@@ -157,10 +178,8 @@ void mouse_func(int button, int state, int x, int y)
                  {
                     if(x >=  525 && x <= 675 && y >= 285 && y <= 355)
                     {
-                        setCars();
-                        game_state = 1;
+                    	reset();
                     }
-
                     else if(x >=  525 && x <= 675 && y >= 445 && y <= 515)
                         exit(0);
                  }
@@ -170,26 +189,12 @@ void mouse_func(int button, int state, int x, int y)
                  {
                     if(x >=  525 && x <= 675 && y >= 285 && y <= 355)
                     {
-                        gameStopped = false;
-                        gameCompleted = false;
-                        reachedEnd = false;
-                        seconds = 0;
-                        distance = 178;
-                        fuel = 178;
-                        fuelOver = false;
-                        end_y = 16000;
-                        setCars();
-                        game_state = 1;
-                        car_x = 0;
+                    	reset();
                     }
-
                     else if(x >=  525 && x <= 675 && y >= 445 && y <= 515)
                         exit(0);
                  }
                  break;
-
-
-
     }
 }
 
