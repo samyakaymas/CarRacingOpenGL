@@ -586,6 +586,14 @@ void moveOtherCars()
             pos[i] = 200 + rand()%100;
             speeds[i] = 2 + rand()%5;
         }
+        bool flag = 1;
+        for (int j=0;j<MAX_CARS;j++)
+        {
+	    if (speeds[j] != speeds[i])
+	        flag = 0;
+        }
+        if (flag)
+	    speeds[i]++;
     }
     if(horn)
     {
