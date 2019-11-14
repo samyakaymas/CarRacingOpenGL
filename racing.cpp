@@ -562,12 +562,12 @@ void periodicFunction(int v)
     moveFuel();
 
     if(!detectCollision() && !gameStopped && game_state == 1)
-        temp += 15;
+        temp += 50;
 
 	if(temp > 1000)
     {
         temp  = 0;
-        seconds++;
+        seconds+=(speed/2);
     }
 
 	glutPostRedisplay();
@@ -672,7 +672,7 @@ void drawMainMenu()
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(-20, 30, 0);
+    glTranslated(-20, 25, 0);
     glScalef(0.1, 0.1, 0.1);
     glColor3f(1.0, 1.0, 1.0);
     draw_string("START");
@@ -691,7 +691,7 @@ void drawMainMenu()
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(-15, -30, 0);
+    glTranslated(-12, -35, 0);
     glScalef(0.1, 0.1, 0.1);
     draw_string("EXIT");
 
@@ -744,7 +744,7 @@ void drawExitMenu()
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(-25, 30, 0);
+    glTranslated(-27, 25, 0);
     glScalef(0.1, 0.1, 0.1);
     glColor3f(1.0, 1.0, 1.0);
     draw_string("RESTART");
@@ -764,7 +764,7 @@ void drawExitMenu()
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(-15, -30, 0);
+    glTranslated(-12, -35, 0);
     glScalef(0.1, 0.1, 0.1);
     draw_string("EXIT");
 
@@ -808,12 +808,12 @@ void drawTime()
     glColor3f(1.0, 1.0, 1.0);
     glPushMatrix();
     glTranslated(-200, 90, 0);
-    glBegin(GL_LINE_LOOP);
-        glVertex2f(50, 15);
-        glVertex2f(50, -15);
-        glVertex2f(-30, -15);
-        glVertex2d(-30, 15);
-    glEnd();
+    // glBegin(GL_LINE_LOOP);
+    //     glVertex2f(50, 15);
+    //     glVertex2f(50, -15);
+    //     glVertex2f(-30, -15);
+    //     glVertex2d(-30, 15);
+    // glEnd();
     glPopMatrix();
 
     glPushMatrix();
